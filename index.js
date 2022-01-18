@@ -183,5 +183,8 @@ app.listen(port, () => {
 // module.exports = { app, express, router, corsOptions, connection };
 
 module.exports = {
-  app: app(),
+  app,
+  router,
+  connection,
+  express,
 };
