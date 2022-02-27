@@ -3,36 +3,22 @@ const https = require("https");
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
-const mysql = require("mysql");
 
+require("dotenv").config();
 // const route = require("./routes/index.route");
 
 const app = express();
-const router = express.Router();
-const port = 3000;
+const { router, connection } = require("./router");
+const port = process.env.PORT;
 const corsOptions = { origin: "*" };
-const db_config = {
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "dummy_db",
-  multipleStatements: true,
-};
 
 app.use(router);
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// app.use(express.urlencoded({ extended: false }));
 
 // const router = require("./routes/index.route");
 // console.log(router);
-
-const connection = mysql.createConnection(db_config);
-// connection.connect();
-connection.connect(function (err) {
-  if (err) throw err;
-  console.log("You are now connected...");
-});
 
 // //to insert record into mysql
 // connection.query(
@@ -163,10 +149,12 @@ connection.connect(function (err) {
 //     }
 //   );
 // });
-require("./routes/index.route")(app);
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
+
+require("./routes/index.route");
 
 // //delete record from mysql database
 // connection.query(
@@ -182,9 +170,4 @@ app.listen(port, () => {
 
 // module.exports = { app, express, router, corsOptions, connection };
 
-module.exports = {
-  app,
-  router,
-  connection,
-  express,
-};
+// module.exports.app = app;
