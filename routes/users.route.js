@@ -2,6 +2,8 @@
 // console.log(router);
 const express = require("express");
 const router = express.Router();
+
+// const router = require('../router')
 const userservice = require("../services/users.service");
 router.get('/',userservice.getAll);
 router.get('/:id',userservice.getOne);
