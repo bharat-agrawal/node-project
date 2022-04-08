@@ -1,9 +1,9 @@
 const mysql = require("mysql");
 const db_config = {
-  host: process.env.HOST,
-  user: "root",
-  password: "",
-  database: "dummy_db",
+  host: sql6.freemysqlhosting.net,
+  user: "sql6484491",
+  password: "wfvD5udXDM",
+  database: "sql6484491",
   multipleStatements: true,
 };
 const connection = mysql.createConnection(db_config);
