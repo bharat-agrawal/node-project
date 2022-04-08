@@ -26,7 +26,7 @@ const updateOne = function (req, res) {
   const department = req.body.employee_department;
   const designation = req.body.employee_designation;
   connection.query(
-    `UPDATE employee SET employee_name='${name}',employee_salary=${salary},employee_age=${age},employee_code=${code},employee_department=${department},employee_designation=${designation} where id=${req.params.id}`,
+    `UPDATE employee SET employee_name='${name}',employee_salary=${salary},employee_age=${age},employee_code='${code}',employee_department='${department}',employee_designation='${designation}' where id=${req.params.id}`,
     function (error, results, fields) {
       if (error) throw error;
       console.log("The response is: ", results);
@@ -54,7 +54,7 @@ const createOne = function (req, res) {
   const department = req.body.employee_department;
   const designation = req.body.employee_designation;
   connection.query(
-    `INSERT INTO employee (employee_name, employee_salary, employee_age, employee_code, employee_department, employee_designation) VALUES ('${name}',${salary},${age},${code},${department},${designation})`,
+    `INSERT INTO employee (employee_name, employee_salary, employee_age, employee_code, employee_department, employee_designation) VALUES ('${name}',${salary},${age},'${code}','${department}','${designation}')`,
     function (error, results, fields) {
       if (error) throw error;
       console.log("The response is: ", results);
