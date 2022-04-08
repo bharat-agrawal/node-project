@@ -19,14 +19,14 @@ const getOne = function (req, res) {
 };
 
 const updateOne = function (req, res) {
-  const name = req.body.employee_name;
-  const salary = req.body.employee_salary;
-  const age = req.body.employee_age;
-  const code = req.body.employee_code;
-  const department = req.body.employee_department;
-  const designation = req.body.employee_designation;
+  const name = req.body.name;
+  const salary = req.body.salary;
+  const age = req.body.age;
+  const code = req.body.code;
+  const department = req.body.department;
+  const designation = req.body.designation;
   connection.query(
-    `UPDATE employee SET employee_name='${name}',employee_salary=${salary},employee_age=${age},employee_code='${code}',employee_department='${department}',employee_designation='${designation}' where id=${req.params.id}`,
+    `UPDATE employee SET name='${name}',salary=${salary},age=${age},code='${code}',department='${department}',designation='${designation}' where id=${req.params.id}`,
     function (error, results, fields) {
       if (error) throw error;
       console.log("The response is: ", results);
@@ -47,14 +47,14 @@ const deleteOne = function (req, res) {
 };
 
 const createOne = function (req, res) {
-  const name = req.body.employee_name;
-  const salary = req.body.employee_salary;
-  const age = req.body.employee_age;
-  const code = req.body.employee_code;
-  const department = req.body.employee_department;
-  const designation = req.body.employee_designation;
+  const name = req.body.name;
+  const salary = req.body.salary;
+  const age = req.body.age;
+  const code = req.body.code;
+  const department = req.body.department;
+  const designation = req.body.designation;
   connection.query(
-    `INSERT INTO employee (employee_name, employee_salary, employee_age, employee_code, employee_department, employee_designation) VALUES ('${name}',${salary},${age},'${code}','${department}','${designation}')`,
+    `INSERT INTO employee (name, salary, age, code, department, designation) VALUES ('${name}',${salary},${age},'${code}','${department}','${designation}')`,
     function (error, results, fields) {
       if (error) throw error;
       console.log("The response is: ", results);
