@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 const db_config = {
-  host: sql6.freemysqlhosting.net,
+  host: "sql6.freemysqlhosting.net",
   user: "sql6484491",
   password: "wfvD5udXDM",
   database: "sql6484491",
