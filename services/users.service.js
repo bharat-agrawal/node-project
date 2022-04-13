@@ -20,13 +20,14 @@ const getOne = function (req, res) {
 
 const updateOne = function (req, res) {
   const name = req.body.name;
+  const email = req.body.email;
   const salary = req.body.salary;
   const age = req.body.age;
   const code = req.body.code;
   const department = req.body.department;
   const designation = req.body.designation;
   connection.query(
-    `UPDATE employee SET name='${name}',salary=${salary},age=${age},code='${code}',department='${department}',designation='${designation}' where id=${req.params.id}`,
+    `UPDATE employee SET name='${name}',email='${email}',salary=${salary},age=${age},code='${code}',department='${department}',designation='${designation}' where id=${req.params.id}`,
     function (error, results, fields) {
       if (error) throw error;
       console.log("The response is: ", results);
